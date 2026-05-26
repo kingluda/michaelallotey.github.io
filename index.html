@@ -47,21 +47,29 @@
 
   <style>
     :root {
-      --navy:    #0a1628;
-      --navy2:   #0f2040;
-      --navy3:   #162a4a;
-      --slate:   #1e3a5f;
-      --green:   #2d6a4f;
-      --green2:  #40916c;
-      --green3:  #74c69d;
-      --green4:  #b7e4c7;
-      --amber:   #e9b44c;
-      --amber2:  #f4d03f;
-      --white:   #f0f4f8;
-      --white2:  #d8e4f0;
-      --muted:   #8ba4bc;
-      --border:  rgba(45,106,79,0.25);
-      --border2: rgba(45,106,79,0.12);
+      --navy:    #060d1a;
+      --navy2:   #0b1a2e;
+      --navy3:   #0f2240;
+      --slate:   #1a3352;
+      --green:   #1a5c3a;
+      --green2:  #22c55e;
+      --green3:  #4ade80;
+      --green4:  #86efac;
+      --amber:   #f59e0b;
+      --amber2:  #fbbf24;
+      --teal:    #14b8a6;
+      --teal2:   #2dd4bf;
+      --coral:   #f97316;
+      --coral2:  #fb923c;
+      --sky:     #0ea5e9;
+      --sky2:    #38bdf8;
+      --purple:  #8b5cf6;
+      --purple2: #a78bfa;
+      --white:   #f8fafc;
+      --white2:  #e2e8f0;
+      --muted:   #94a3b8;
+      --border:  rgba(34,197,94,0.2);
+      --border2: rgba(34,197,94,0.08);
       --font-display: 'Syne', sans-serif;
       --font-body:    'DM Sans', sans-serif;
       --font-mono:    'DM Mono', monospace;
@@ -129,13 +137,13 @@
 
     /* HERO */
     #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; overflow: hidden; background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 50%, #0d2d1a 100%); }
-    .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; width: 100%; }
+    .hero-inner { display: flex; flex-direction: column; max-width: 780px; width: 100%; }
     .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--green3); border: 1px solid var(--border); padding: 0.35rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
     .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--green3); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
-    .hero-name { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .hero-name { font-family: var(--font-display); font-size: clamp(2rem, 3.8vw, 3.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.75rem; }
     .hero-name .accent { color: var(--green3); }
-    .hero-title { font-family: var(--font-display); font-size: clamp(1rem, 1.8vw, 1.3rem); font-weight: 600; color: var(--amber); margin-bottom: 1.5rem; letter-spacing: 0.01em; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(1rem, 1.6vw, 1.15rem); font-weight: 600; color: var(--amber); margin-bottom: 1.5rem; letter-spacing: 0.02em; }
     .hero-bio { font-size: 1rem; color: var(--white2); line-height: 1.8; max-width: 520px; margin-bottom: 2.5rem; }
     .hero-stats { display: flex; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
     .stat { text-align: left; }
@@ -354,25 +362,7 @@
       .pub-card { flex-direction: column; gap: 0.5rem; }
     }
 
-    /* HERO GLOBE WRAP (now just a placeholder — globe removed, kept for layout) */
-    .hero-globe-wrap { display: flex; justify-content: center; align-items: center; }
-    .hero-globe-card {
-      background: rgba(15,32,64,0.7);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
-      backdrop-filter: blur(12px);
-      width: 100%; max-width: 380px;
-    }
-    .globe-label { font-family: var(--font-mono); font-size: 0.68rem; color: var(--green3); letter-spacing: 0.12em; text-transform: uppercase; align-self: flex-start; }
-    #globeCanvas { border-radius: 50%; border: 1px solid var(--border); background: transparent; cursor: grab; }
-    #globeCanvas:active { cursor: grabbing; }
-    .globe-legend { display: flex; gap: 1rem; font-size: 0.72rem; color: var(--muted); align-items: center; flex-wrap: wrap; justify-content: center; font-family: var(--font-mono); }
-    .globe-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-    .globe-dot.origin { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
-    .globe-dot.research { background: var(--green3); box-shadow: 0 0 6px var(--green3); }
-    .globe-dot.personal { background: #7eb8f7; box-shadow: 0 0 6px #7eb8f7; }
+    /* Globe widget removed — replaced by satellite mosaic panel */
 
     /* ABOUT ID CARD */
     .about-id-card {
@@ -464,6 +454,169 @@
     .place-type.home { background: rgba(233,180,76,0.12); color: var(--amber); border: 1px solid rgba(233,180,76,0.25); }
     .place-type.work { background: rgba(45,106,79,0.12); color: var(--green3); border: 1px solid var(--border2); }
     .place-type.personal { background: rgba(30,80,180,0.15); color: #7eb8f7; border: 1px solid rgba(30,80,180,0.22); }
+
+    /* ── HERO OVERHAUL ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      background: linear-gradient(135deg, #060d1a 0%, #0b1a2e 40%, #050f0a 100%);
+      padding-top: 80px; overflow: hidden; position: relative;
+    }
+
+
+    /* Name — single horizontal line */
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+    .hero-name .accent { color: var(--green3); }
+
+    /* Title — clean single line, amber accent */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* PhD Banner */
+    .phd-banner {
+      background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(251,191,36,0.06) 100%);
+      border: 1px solid rgba(245,158,11,0.35);
+      border-left: 3px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 0.9rem 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .phd-banner-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .phd-banner-text { font-size: 0.85rem; color: var(--white2); line-height: 1.5; }
+    .phd-banner-text strong { color: var(--amber); display: block; margin-bottom: 0.15rem; }
+
+    /* Tag pill */
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--green3);
+      border: 1px solid rgba(34,197,94,0.25);
+      background: rgba(34,197,94,0.06);
+      padding: 0.35rem 0.9rem; border-radius: 100px;
+      margin-bottom: 1.5rem; letter-spacing: 0.05em;
+    }
+    .tag-dot {
+      width: 6px; height: 6px;
+      background: var(--green3); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    /* Stats */
+    .stat-num { font-size: 2rem; color: var(--green3); }
+    .stat-label { color: var(--muted); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green2), var(--teal));
+      color: var(--white) !important;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--green3), var(--teal2));
+      color: var(--navy) !important;
+      box-shadow: 0 8px 32px rgba(34,197,94,0.5);
+    }
+    .btn-secondary { border-color: rgba(34,197,94,0.3); }
+    .btn-secondary:hover { border-color: var(--green3); color: var(--green3); }
+
+    /* Satellite mosaic panel removed */
+
+    /* ── VIBRANT SECTION BACKGROUNDS ── */
+    #about        { background: linear-gradient(160deg, #0b1a2e 0%, #060d1a 100%); padding: 6rem 0; }
+    #research-focus { background: linear-gradient(160deg, #060d1a 0%, #0a1a0f 100%); padding: 5rem 0; }
+    #skills       { background: linear-gradient(160deg, #0a1a0f 0%, #0b1a2e 100%); padding: 6rem 0; }
+    #experience   { background: linear-gradient(160deg, #0b1a2e 0%, #10091a 100%); padding: 6rem 0; }
+    #projects     { background: linear-gradient(160deg, #10091a 0%, #0b1a2e 100%); padding: 6rem 0; }
+    #talks        { background: linear-gradient(160deg, #0b1a2e 0%, #060d1a 100%); padding: 6rem 0; }
+    #footprint    { background: linear-gradient(160deg, #060d1a 0%, #0a1a12 100%); padding: 6rem 0; }
+    #publications { background: linear-gradient(160deg, #0a1a12 0%, #0b1a2e 100%); padding: 6rem 0; }
+    #awards       { background: linear-gradient(160deg, #0b1a2e 0%, #1a100a 100%); padding: 5rem 0; }
+    #education    { background: linear-gradient(160deg, #1a100a 0%, #0b1a2e 100%); padding: 6rem 0; }
+    #contact      { background: linear-gradient(135deg, #060d1a 0%, #0a1a0f 50%, #10091a 100%); padding: 6rem 0; }
+
+    /* ── VIBRANT SECTION LABELS & DIVIDERS ── */
+    .section-label { color: var(--teal2) !important; }
+    .divider { background: linear-gradient(90deg, var(--green2), var(--teal), var(--sky)); }
+
+    /* ── VIBRANT CARDS ── */
+    .focus-card { background: linear-gradient(135deg, var(--navy2) 0%, rgba(20,184,166,0.04) 100%); border-color: rgba(20,184,166,0.15); }
+    .focus-card:hover { border-color: var(--teal2); box-shadow: 0 8px 32px rgba(20,184,166,0.15); }
+    .focus-card-title { color: var(--teal2) !important; }
+
+    .stack-card { background: var(--navy2); border-color: rgba(139,92,246,0.12); }
+    .stack-card:hover { border-color: rgba(139,92,246,0.4); box-shadow: 0 4px 20px rgba(139,92,246,0.1); }
+    .stack-card-label { color: var(--purple2) !important; }
+
+    .project-card { background: var(--navy2); }
+    .project-card:hover { border-color: var(--teal2); box-shadow: 0 20px 48px rgba(20,184,166,0.12); }
+    .project-featured { background: linear-gradient(135deg, var(--navy2) 0%, rgba(34,197,94,0.06) 100%) !important; }
+
+    .award-card:hover { border-color: var(--amber); box-shadow: 0 4px 20px rgba(245,158,11,0.2); }
+    .award-amount { color: var(--amber) !important; }
+
+    .edu-card.incoming { border-color: rgba(245,158,11,0.4) !important; background: linear-gradient(135deg, var(--navy3) 0%, rgba(245,158,11,0.05) 100%) !important; }
+
+    .timeline-item::before { background: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.25); }
+    .timeline-role { color: var(--white); }
+    .timeline-org { color: var(--amber) !important; }
+    .timeline-date { color: var(--teal2) !important; }
+
+    .talk-date { color: var(--teal2) !important; }
+    .talk-type.conf { background: rgba(20,184,166,0.12); color: var(--teal2); border-color: rgba(20,184,166,0.2); }
+
+    .pub-year { color: var(--teal2) !important; }
+    .pub-journal { color: var(--coral2) !important; }
+    .pub-doi { color: var(--sky2) !important; }
+    .pub-doi:hover { color: var(--sky) !important; }
+
+    .edu-period { color: var(--teal2) !important; }
+    .edu-school { color: var(--amber) !important; }
+    .edu-gpa { color: var(--green3) !important; background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2); }
+
+    /* ── NAV ── */
+    nav { background: rgba(6,13,26,0.92); border-bottom: 1px solid rgba(20,184,166,0.1); }
+    .nav-cta { background: linear-gradient(135deg, var(--green2), var(--teal)) !important; }
+    .nav-cta:hover { background: linear-gradient(135deg, var(--green3), var(--teal2)) !important; }
+    .nav-links a::after { background: var(--teal2); }
+
+    /* ── CONTACT ── */
+    .form-input:focus, .form-textarea:focus { border-color: var(--teal) !important; box-shadow: 0 0 0 3px rgba(20,184,166,0.1); }
+    .form-submit { background: linear-gradient(135deg, var(--green2), var(--teal)) !important; }
+    .form-submit:hover { background: linear-gradient(135deg, var(--green3), var(--teal2)) !important; color: var(--navy) !important; }
+    .contact-item:hover { color: var(--teal2) !important; }
+    .contact-item-icon { background: rgba(20,184,166,0.1); border-color: rgba(20,184,166,0.2); }
+
+    /* ── SOCIAL LINKS ── */
+    .social-link:hover { border-color: var(--teal2); color: var(--teal2); background: rgba(20,184,166,0.08); }
+    .id-tag { background: rgba(20,184,166,0.08); border-color: rgba(20,184,166,0.15); }
+
+    /* ── SCROLL HINT ── */
+    .scroll-line { background: linear-gradient(to bottom, var(--teal2), transparent); }
+
+    /* ── FOOTER ── */
+    footer { background: #040a12; border-color: rgba(20,184,166,0.1); }
+    .footer-name span { color: var(--teal2) !important; }
+
+    /* ── RESPONSIVE HERO ── */
+    @media (max-width: 960px) {
+      .hero-inner { max-width: 100%; }
+    }
+
   </style>
 </head>
 <body>
@@ -504,18 +657,32 @@
 <!-- ═══ HERO ═══ -->
 <section id="hero">
   <div class="map-grid"></div>
+  <div class="hero-sat-strip">
+    <div class="sat-img" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif')"></div>
+    <div class="sat-tile st1"></div>
+    <div class="sat-tile st2"></div>
+    <div class="sat-tile st3"></div>
+    <div class="sat-tile st4"></div>
+    <div class="sat-tile st5"></div>
+    <div class="sat-tile st6"></div>
+  </div>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-tag">Live GEE App · Incoming PhD · Open to collaboration</div>
-        <h1 class="hero-name">Michael<br><span class="accent">Kpakpo</span><br>Allotey</h1>
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          Live GEE App · Incoming PhD · Open to collaboration
+        </div>
+        <h1 class="hero-name">
+          Michael Kpakpo Allotey
+        </h1>
         <p class="hero-title">Geospatial Data Scientist &amp; GIS Specialist</p>
 
         <div class="phd-banner">
           <div class="phd-banner-icon">🎓</div>
           <div class="phd-banner-text">
             <strong>Incoming PhD — Fall 2026</strong><br>
-            Applied Science &amp; Technology in Geospatial Sciences · North Carolina A&amp;T State University
+            Applied Science &amp; Technology in Geospatial Sciences · NC A&amp;T State University
           </div>
         </div>
 
@@ -533,17 +700,7 @@
           <a href="#contact" class="btn-secondary">Get in Touch</a>
         </div>
       </div>
-      <div class="hero-globe-wrap">
-        <div class="hero-globe-card">
-          <div class="globe-label">// global footprint</div>
-          <canvas id="globeCanvas" width="340" height="340"></canvas>
-          <div class="globe-legend">
-            <span class="globe-dot origin"></span><span>Origin</span>
-            <span class="globe-dot research"></span><span>Research &amp; Work</span>
-            <span class="globe-dot personal"></span><span>Personal Travel</span>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
   <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
